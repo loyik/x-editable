@@ -225,7 +225,7 @@ $(function(){
                return str;
            }
 
-           if (this.isMultiple) {
+           if (this.isMultiple && (typeof str === 'string' && str.length)) {
                return str.split(this.getSeparator());
            }
 
