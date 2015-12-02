@@ -3858,8 +3858,7 @@ $(function(){
            // We have to special case multiple selects, which aren't supported
            // by default.
            if (!$.isArray(value)) {
-               //console.log('value2htmlFinal', arguments, 'non-array');
-               return Constructor.superclass.value2htmlFinal.call(this, value, element);
+               value = [value];
            }
 
            var results = [];
