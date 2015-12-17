@@ -4772,14 +4772,13 @@ Editableform based on Twitter Bootstrap 3
                 if(emptyInputClass) {
                     this.input.options.inputclass = defaultClass;
                     this.input.$input.addClass(defaultClass);
-		    /* Quick n dirty hack to resolv bug introduce with https://github.com/select2/select2-bootstrap-theme/issues/9 */
-		    if (this.input.type == 'select2') {
-		      this.input.$input.width('auto');
-		    }
-
                 }
             }             
-        
+            // Quick n dirty hack to resolv bug introduce with https://github.com/select2/select2-bootstrap-theme/issues/9
+            if (this.input.type == 'select2') {
+                this.input.$input.width('auto');
+            }
+
             //apply bs3 size class also to buttons (to fit size of control)
             var $btn = this.$form.find('.editable-buttons');
             var classes = emptyInputClass ? [defaultClass] : this.input.options.inputclass.split(' ');
