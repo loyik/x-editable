@@ -21,12 +21,17 @@ Editableform based on Twitter Bootstrap 3
             var defaultClass = 'input-sm';
             
             //bs3 add `form-control` class to standard inputs
-            var stdtypes = 'text,select,textarea,password,email,url,tel,number,range,time,typeaheadjs'.split(','); 
+            var stdtypes = 'text,select,select2,textarea,password,email,url,tel,number,range,time,typeaheadjs'.split(',');
             if(~$.inArray(this.input.type, stdtypes)) {
                 this.input.$input.addClass('form-control');
                 if(emptyInputClass) {
                     this.input.options.inputclass = defaultClass;
                     this.input.$input.addClass(defaultClass);
+		    /* Quick n dirty hack to resolv bug introduce with https://github.com/select2/select2-bootstrap-theme/issues/9 */
+		    if (this.input.type == 'select2') {
+		      this.input.$input.width('auto');
+		    }
+
                 }
             }             
         
